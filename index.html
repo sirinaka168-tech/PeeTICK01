@@ -7,9 +7,7 @@
 <meta name="description" content="โรงงานผลิตน้ำจิ้ม น้ำซุปชาบู น้ำยำ และเส้นก๋วยจั๊บ มาตรฐาน อย. รับผลิต OEM ประสบการณ์กว่า 10 ปี วางจำหน่ายที่ Tops, Lotus's, Big C, Family Mart">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script>try{if(localStorage.getItem('lang'))document.documentElement.classList.add('has-lang');}catch(e){}</script>
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
   :root{
     --orange:#E06A38;
     --orange-deep:#C8551F;
@@ -287,7 +285,6 @@
     background:linear-gradient(135deg,rgba(94,31,25,.96),rgba(124,45,37,.93)),url(assets/hero-shabu.jpg) center/cover no-repeat;
     transition:opacity .5s ease, visibility .5s ease}
   #langGate.hide{opacity:0;visibility:hidden;pointer-events:none}
-  html.has-lang #langGate{display:none!important}
   body.gate-open{overflow:hidden}
   #langGate .g-logo{width:82px;height:82px;border-radius:20px;background:#fff;padding:6px;box-shadow:var(--shadow);margin-bottom:24px;animation:gIn .6s ease both}
   #langGate h2{color:#fff;font-family:'Kanit',sans-serif;font-weight:700;font-size:clamp(1.5rem,4vw,2.3rem);margin-bottom:8px;animation:gIn .6s .05s ease both}
@@ -787,9 +784,10 @@
   function closeGate(){ if(gate){gate.classList.add('hide');} document.body.classList.remove('gate-open'); }
   if(gate){ gate.querySelectorAll('.g-opt').forEach(b=>b.onclick=()=>{ setLang(b.getAttribute('data-lang')); closeGate(); }); }
   (function(){
-    let saved=null; try{ saved=localStorage.getItem('lang'); }catch(e){}
-    if(saved){ setLang(saved); closeGate(); }
-    else { setLang('th'); document.body.classList.add('gate-open'); }
+    // always show the language gate on entry; use last choice as background default
+    let saved='th'; try{ saved=localStorage.getItem('lang')||'th'; }catch(e){}
+    setLang(saved);
+    document.body.classList.add('gate-open');
   })();
 </script>
 </body>
