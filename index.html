@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ห้างหุ้นส่วน ซี เอส เจริญสิน | โรงงานผลิตน้ำจิ้ม น้ำซุปชาบู และเส้นก๋วยจั๊บ</title>
+<meta name="description" content="โรงงานผลิตน้ำจิ้ม น้ำซุปชาบู น้ำยำ และเส้นก๋วยจั๊บ มาตรฐาน อย. รับผลิต OEM ประสบการณ์กว่า 10 ปี วางจำหน่ายที่ Tops, Lotus's, Big C, Family Mart">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#E06A38;
+    --orange-deep:#C8551F;
+    --orange-soft:#F6A97C;
+    --maroon:#7C2D25;
+    --maroon-deep:#5E1F19;
+    --cream:#FFF7F0;
+    --cream-2:#FDEFE2;
+    --ink:#2A1712;
+    --muted:#7a6258;
+    --line:#eaddd3;
+    --gold:#E6A93B;
+    --shadow:0 18px 50px -18px rgba(124,45,37,.35);
+    --shadow-sm:0 8px 24px -12px rgba(124,45,37,.30);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Sarabun','Leelawadee UI','Tahoma',sans-serif;
+    color:var(--ink);background:var(--cream);line-height:1.65;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{font-family:'Kanit','Leelawadee UI','Tahoma',sans-serif;font-weight:700;line-height:1.15}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:'Kanit',sans-serif;font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--orange-deep)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-family:'Kanit',sans-serif;font-weight:600;
+    padding:14px 30px;border-radius:60px;font-size:1rem;cursor:pointer;border:none;transition:.25s;white-space:nowrap;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;box-shadow:0 12px 28px -10px rgba(200,85,31,.7)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 34px -10px rgba(200,85,31,.8)}
+  .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:#fff;color:var(--maroon)}
+  .btn-dark{background:var(--maroon);color:#fff}
+  .btn-dark:hover{background:var(--maroon-deep);transform:translateY(-3px)}
+
+  /* NAV */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1240px;margin:0 auto;transition:.3s}
+  header.scrolled{background:rgba(255,247,240,.92);backdrop-filter:blur(12px);box-shadow:0 6px 24px -14px rgba(124,45,37,.45)}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Kanit',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;transition:.3s}
+  header.scrolled .brand{color:var(--maroon)}
+  .brand img{width:46px;height:46px;border-radius:12px;background:#fff;padding:3px;box-shadow:var(--shadow-sm)}
+  .brand small{display:block;font-family:'Sarabun',sans-serif;font-weight:400;font-size:.72rem;opacity:.8;letter-spacing:.02em}
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-links a{font-family:'Kanit',sans-serif;font-weight:500;font-size:.95rem;color:#fff;padding:8px 15px;border-radius:40px;transition:.2s;opacity:.92}
+  header.scrolled .nav-links a{color:var(--ink)}
+  .nav-links a:hover{background:rgba(255,255,255,.16)}
+  header.scrolled .nav-links a:hover{background:var(--cream-2);color:var(--orange-deep)}
+  .nav-cta{background:var(--orange)!important;color:#fff!important}
+  header.scrolled .nav-cta{color:#fff!important}
+  .nav-cta:hover{background:var(--orange-deep)!important}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:3px;background:#fff;border-radius:3px;transition:.3s}
+  header.scrolled .burger span{background:var(--maroon)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(105deg,rgba(94,31,25,.94) 0%,rgba(124,45,37,.86) 38%,rgba(124,45,37,.35) 72%,rgba(0,0,0,.15) 100%)}
+  .hero-inner{padding:120px 0 80px;max-width:720px}
+  .hero .eyebrow{color:var(--orange-soft)}
+  .hero h1{font-size:clamp(2.4rem,5.6vw,4.3rem);font-weight:800;margin:16px 0 8px;text-shadow:0 4px 30px rgba(0,0,0,.3)}
+  .hero h1 .hl{color:var(--orange-soft)}
+  .hero .lead{font-size:clamp(1.05rem,2vw,1.3rem);max-width:560px;opacity:.94;font-weight:300;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+  .hero-badges{display:flex;gap:26px;flex-wrap:wrap}
+  .hero-badges .b{display:flex;align-items:center;gap:10px;font-size:.92rem}
+  .hero-badges .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;font-size:1.2rem}
+  .hero-badges b{font-family:'Kanit',sans-serif;display:block;font-size:1.05rem;line-height:1.1}
+  .hero-badges span{opacity:.8;font-size:.8rem}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:#fff;opacity:.7;font-size:.8rem;text-align:center;animation:bob 2s infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  /* MARQUEE trust */
+  .strip{background:var(--maroon-deep);color:#fff;padding:16px 0;overflow:hidden;white-space:nowrap}
+  .strip .track{display:inline-flex;gap:56px;animation:scroll 26s linear infinite;font-family:'Kanit',sans-serif;font-weight:500;font-size:1rem}
+  .strip .track span{opacity:.9}
+  .strip .track .dot{color:var(--orange-soft)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* SECTION */
+  section{position:relative}
+  .sec{padding:96px 0}
+  .sec-head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .sec-head h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:12px 0;color:var(--maroon)}
+  .sec-head p{color:var(--muted);font-size:1.08rem}
+  .divider{width:64px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--orange),var(--gold));margin:0 auto}
+
+  /* STATS */
+  .stats{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{text-align:center;padding:14px}
+  .stat .num{font-family:'Kanit',sans-serif;font-weight:800;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1}
+  .stat .lab{font-size:.98rem;opacity:.92;margin-top:6px}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .about .txt .eyebrow{margin-bottom:8px}
+  .about h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--maroon);margin-bottom:20px}
+  .about p{color:var(--muted);margin-bottom:16px;font-size:1.06rem}
+  .about .feats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .feat{display:flex;gap:12px;align-items:flex-start}
+  .feat .fic{flex:none;width:40px;height:40px;border-radius:11px;background:var(--cream-2);color:var(--orange-deep);display:grid;place-items:center;font-size:1.15rem}
+  .feat b{font-family:'Kanit',sans-serif;font-weight:600;display:block;font-size:1rem}
+  .feat span{font-size:.9rem;color:var(--muted)}
+  .about .visual{position:relative}
+  .about .visual img{border-radius:24px;box-shadow:var(--shadow);width:100%;aspect-ratio:4/5;object-fit:cover}
+  .about .badge-float{position:absolute;bottom:-22px;left:-22px;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px}
+  .about .badge-float .big{font-family:'Kanit',sans-serif;font-weight:800;font-size:2rem;color:var(--orange-deep);line-height:1}
+  .about .badge-float small{color:var(--muted);font-size:.82rem}
+
+  /* CAPABILITIES */
+  .caps{background:var(--cream-2)}
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .cap{background:#fff;border-radius:22px;padding:34px 28px;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:.3s;position:relative;overflow:hidden}
+  .cap::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--gold));transform:scaleX(0);transform-origin:left;transition:.35s}
+  .cap:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+  .cap:hover::before{transform:scaleX(1)}
+  .cap .cic{width:62px;height:62px;border-radius:16px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:grid;place-items:center;font-size:1.7rem;margin-bottom:18px}
+  .cap h3{font-size:1.3rem;color:var(--maroon);margin-bottom:10px}
+  .cap p{color:var(--muted);font-size:.98rem}
+
+  /* PRODUCTS */
+  .tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:42px}
+  .tab{font-family:'Kanit',sans-serif;font-weight:500;padding:11px 24px;border-radius:50px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.22s;font-size:.98rem}
+  .tab:hover{border-color:var(--orange-soft);color:var(--orange-deep)}
+  .tab.active{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;border-color:transparent;box-shadow:0 10px 22px -10px rgba(200,85,31,.7)}
+  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:.32s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+  .card .ph{position:relative;height:250px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px}
+  .card .ph img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:.5s;filter:drop-shadow(0 12px 20px rgba(0,0,0,.4))}
+  .card:hover .ph img{transform:scale(1.06)}
+  .card .ph.on-dark{background:radial-gradient(circle at 50% 28%,#1c1310,#000)}
+  .card .ph.on-light{background:radial-gradient(circle at 50% 25%,#ffffff,var(--cream-2))}
+  .card .ph.on-light img{filter:drop-shadow(0 12px 22px rgba(124,45,37,.18))}
+  .card .cat-tag{position:absolute;top:14px;left:14px;background:rgba(124,45,37,.92);color:#fff;font-family:'Kanit',sans-serif;font-weight:500;font-size:.76rem;padding:6px 13px;border-radius:30px;backdrop-filter:blur(3px)}
+  .card .price{position:absolute;top:14px;right:14px;background:var(--gold);color:#3a2410;font-family:'Kanit',sans-serif;font-weight:700;font-size:.85rem;padding:6px 13px;border-radius:30px}
+  .card .body{padding:22px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-size:1.22rem;color:var(--ink);margin-bottom:8px}
+  .card .desc{color:var(--muted);font-size:.94rem;margin-bottom:16px;flex:1}
+  .card .specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .card .specs span{background:var(--cream-2);color:var(--maroon);font-size:.78rem;padding:5px 11px;border-radius:8px;font-weight:500}
+  .card .avail{font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+  .card .avail b{color:var(--orange-deep)}
+
+  /* BRANDS */
+  .brands{background:var(--maroon);color:#fff;position:relative;overflow:hidden}
+  .brands::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(224,106,56,.35),transparent 55%)}
+  .brands .sec-head h2{color:#fff}
+  .brands .sec-head p{color:rgba(255,255,255,.75)}
+  .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+  .bcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:28px 22px;text-align:center;transition:.3s;backdrop-filter:blur(4px)}
+  .bcard:hover{background:rgba(255,255,255,.13);transform:translateY(-6px)}
+  .bcard .bn{font-family:'Kanit',sans-serif;font-weight:700;font-size:1.35rem;color:var(--orange-soft);margin-bottom:8px}
+  .bcard p{font-size:.9rem;color:rgba(255,255,255,.82)}
+  .oem-banner{position:relative;margin-top:52px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .oem-banner img{border-radius:16px;box-shadow:var(--shadow)}
+  .oem-banner h3{font-size:1.7rem;margin-bottom:14px}
+  .oem-banner h3 span{color:var(--orange-soft)}
+  .oem-banner p{color:rgba(255,255,255,.82);margin-bottom:18px}
+  .retail-logos{display:flex;gap:12px;flex-wrap:wrap}
+  .retail-logos span{background:#fff;color:var(--maroon);font-family:'Kanit',sans-serif;font-weight:700;padding:8px 18px;border-radius:10px;font-size:.95rem}
+
+  /* WHOLESALE */
+  .whole{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .whole .visual img{border-radius:24px;box-shadow:var(--shadow);aspect-ratio:1/1;object-fit:cover;width:100%}
+  .whole h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--maroon);margin-bottom:18px}
+  .whole ul{list-style:none;margin:22px 0}
+  .whole li{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:1.02rem;color:var(--ink)}
+  .whole li .ck{flex:none;width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:.85rem;font-weight:700;margin-top:2px}
+  .pricebox{background:var(--cream-2);border-radius:16px;padding:20px 24px;border-left:4px solid var(--orange);margin-top:8px}
+  .pricebox b{font-family:'Kanit',sans-serif;color:var(--orange-deep);font-size:1.15rem}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(135deg,var(--maroon),var(--maroon-deep));color:#fff}
+  .contact .sec-head h2{color:#fff}
+  .contact .sec-head p{color:rgba(255,255,255,.78)}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:36px}
+  .cc{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:30px 26px;transition:.3s;backdrop-filter:blur(4px)}
+  .cc:hover{background:rgba(255,255,255,.13);transform:translateY(-5px)}
+  .cc .cic{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:grid;place-items:center;font-size:1.4rem;margin-bottom:16px}
+  .cc h4{font-size:1.1rem;margin-bottom:6px}
+  .cc a,.cc p{color:rgba(255,255,255,.85);font-size:1rem;word-break:break-word}
+  .cc a:hover{color:var(--orange-soft)}
+  .cc small{display:block;color:rgba(255,255,255,.6);font-size:.82rem;margin-top:2px}
+  .cta-final{text-align:center;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:48px 32px}
+  .cta-final h3{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:12px}
+  .cta-final p{color:rgba(255,255,255,.8);margin-bottom:26px;max-width:560px;margin-left:auto;margin-right:auto}
+  .cta-final .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:#20100c;color:rgba(255,255,255,.7);padding:44px 0 28px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot .fbrand{display:flex;align-items:center;gap:12px}
+  .foot .fbrand img{width:48px;height:48px;border-radius:12px;background:#fff;padding:3px}
+  .foot .fbrand b{font-family:'Kanit',sans-serif;color:#fff;font-size:1.05rem}
+  .foot .fbrand small{font-size:.78rem}
+  .foot .fcopy{font-size:.86rem;opacity:.7;text-align:right}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* MOBILE */
+  .mobile-menu{position:fixed;inset:0;background:var(--maroon);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transform:translateY(-100%);transition:.4s;visibility:hidden}
+  .mobile-menu.open{transform:none;visibility:visible}
+  .mobile-menu a{color:#fff;font-family:'Kanit',sans-serif;font-size:1.5rem;font-weight:500;padding:12px}
+  .mobile-menu .close{position:absolute;top:24px;right:24px;font-size:2rem;color:#fff;background:none;border:none;cursor:pointer}
+
+  @media(max-width:960px){
+    .nav-links{display:none}
+    .burger{display:flex}
+    .about,.whole{grid-template-columns:1fr;gap:40px}
+    .about .visual{order:-1}
+    .cap-grid,.prod-grid,.contact-grid{grid-template-columns:1fr 1fr}
+    .brand-grid{grid-template-columns:1fr 1fr}
+    .oem-banner{grid-template-columns:1fr}
+    .stats .wrap{grid-template-columns:1fr 1fr;gap:30px}
+  }
+  @media(max-width:600px){
+    .sec{padding:66px 0}
+    .cap-grid,.prod-grid,.contact-grid,.brand-grid{grid-template-columns:1fr}
+    .about .feats{grid-template-columns:1fr}
+    .hero-badges{gap:16px}
+    .foot{flex-direction:column;text-align:center}
+    .foot .fcopy{text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <nav class="nav">
+    <a href="#home" class="brand">
+      <img src="assets/logo.jpg" alt="CS Charoensin">
+      <span>ซี เอส เจริญสิน<small>CHAROENSIN LIMITED PARTNERSHIP</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#services">บริการ</a>
+      <a href="#products">สินค้า</a>
+      <a href="#brands">แบรนด์</a>
+      <a href="#wholesale">ขายส่ง</a>
+      <a href="#contact" class="nav-cta">ติดต่อสั่งซื้อ</a>
+    </div>
+    <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mm">
+  <button class="close" id="mmClose">&times;</button>
+  <a href="#about">เกี่ยวกับเรา</a>
+  <a href="#services">บริการ</a>
+  <a href="#products">สินค้า</a>
+  <a href="#brands">แบรนด์</a>
+  <a href="#wholesale">ขายส่ง</a>
+  <a href="#contact">ติดต่อสั่งซื้อ</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"><img src="assets/hero-shabu.jpg" alt="ชาบู"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="eyebrow">โรงงานผลิตอาหาร • มหาสารคาม</div>
+      <h1>อร่อยระดับ<span class="hl">โรงงาน</span><br>ส่งตรงถึงร้านคุณ</h1>
+      <p class="lead">โรงงานผลิต <b>น้ำจิ้ม • น้ำซุปชาบู • น้ำยำ • เส้นก๋วยจั๊บ</b> หลากหลายชนิด คัดสรรวัตถุดิบคุณภาพ รสชาติได้มาตรฐาน พร้อมรับผลิต OEM ตามสูตรของคุณ</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">ดูสินค้าทั้งหมด &rarr;</a>
+        <a href="#contact" class="btn btn-ghost">รับผลิต / สั่งซื้อ</a>
+      </div>
+      <div class="hero-badges">
+        <div class="b"><div class="ic">🏅</div><div><b>10+ ปี</b><span>ประสบการณ์ในอุตสาหกรรม</span></div></div>
+        <div class="b"><div class="ic">✅</div><div><b>มาตรฐาน อย.</b><span>รับรองคุณภาพ QA Tops</span></div></div>
+        <div class="b"><div class="ic">🛒</div><div><b>Tops · Lotus's · Big C</b><span>วางจำหน่ายห้างชั้นนำ</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">เลื่อนลง<br>▾</div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="strip">
+  <div class="track">
+    <span>น้ำจิ้มซีฟู้ด</span><span class="dot">✦</span><span>น้ำซุปชาบูน้ำดำ</span><span class="dot">✦</span><span>น้ำยำสำเร็จรูป</span><span class="dot">✦</span><span>เส้นก๋วยจั๊บเวียดนาม</span><span class="dot">✦</span><span>แจ่วฮ้อน</span><span class="dot">✦</span><span>สุกี้ยากี้</span><span class="dot">✦</span><span>น้ำจิ้มงาขาว</span><span class="dot">✦</span><span>รับผลิต OEM</span><span class="dot">✦</span>
+    <span>น้ำจิ้มซีฟู้ด</span><span class="dot">✦</span><span>น้ำซุปชาบูน้ำดำ</span><span class="dot">✦</span><span>น้ำยำสำเร็จรูป</span><span class="dot">✦</span><span>เส้นก๋วยจั๊บเวียดนาม</span><span class="dot">✦</span><span>แจ่วฮ้อน</span><span class="dot">✦</span><span>สุกี้ยากี้</span><span class="dot">✦</span><span>น้ำจิ้มงาขาว</span><span class="dot">✦</span><span>รับผลิต OEM</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats sec" style="padding:56px 0">
+  <div class="wrap">
+    <div class="stat reveal"><div class="num" data-count="10">0</div><div class="lab">ปีแห่งประสบการณ์</div></div>
+    <div class="stat reveal"><div class="num" data-count="30" data-suffix="+">0</div><div class="lab">ชนิดสินค้า</div></div>
+    <div class="stat reveal"><div class="num" data-count="4">0</div><div class="lab">ห้างชั้นนำที่วางจำหน่าย</div></div>
+    <div class="stat reveal"><div class="num" data-count="3" data-suffix="พัน+">0</div><div class="lab">ผู้ติดตามหน้าเพจ</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div class="txt reveal">
+      <div class="eyebrow">เกี่ยวกับเรา</div>
+      <h2>ห้างหุ้นส่วน ซี เอส เจริญสิน</h2>
+      <p>เราคือ <b>โรงงานผลิตน้ำจิ้ม น้ำซุปชาบู หลากหลายชนิด และผลิตเส้นก๋วยจั๊บ</b> ด้วยประสบการณ์ในอุตสาหกรรมอาหารมากกว่า 10 ปี</p>
+      <p>เราได้รับมาตรฐานจาก <b>อย.</b> และผ่านการรับรองคุณภาพจาก <b>QA Tops</b> จึงมั่นใจได้ในเรื่องความสะอาด ปลอดภัย และคุณภาพของสินค้า ทุกกระบวนการผลิตเราใส่ใจคัดสรรวัตถุดิบที่มีคุณภาพ เพื่อส่งมอบผลิตภัณฑ์ที่ดี มีรสชาติได้มาตรฐาน และสร้างประโยชน์สูงสุดให้กับผู้บริโภค</p>
+      <div class="feats">
+        <div class="feat"><div class="fic">🧼</div><div><b>สะอาด ปลอดภัย</b><span>ผลิตตามมาตรฐาน อย.</span></div></div>
+        <div class="feat"><div class="fic">🌿</div><div><b>วัตถุดิบคัดสรร</b><span>คุณภาพทุกขั้นตอน</span></div></div>
+        <div class="feat"><div class="fic">👨‍🍳</div><div><b>รสชาติต้นตำรับ</b><span>อร่อยได้มาตรฐาน</span></div></div>
+        <div class="feat"><div class="fic">🏭</div><div><b>กำลังผลิตสูง</b><span>รองรับทั้งปลีกและส่ง</span></div></div>
+      </div>
+    </div>
+    <div class="visual reveal">
+      <img src="assets/meat-platter.jpg" alt="วัตถุดิบชาบูคุณภาพ">
+      <div class="badge-float"><div class="big">อย.</div><div><b style="font-family:Kanit">รับรองมาตรฐาน</b><small>ผ่านการรับรอง QA Tops</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / CAPABILITIES -->
+<section class="sec caps" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <h2>สิ่งที่เราทำได้</h2>
+      <p>ครบวงจรตั้งแต่คิดค้นสูตร ผลิต ไปจนถึงส่งมอบ ทั้งแบรนด์ของเราเองและรับผลิตให้คุณ</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap reveal">
+        <div class="cic">🏭</div>
+        <h3>รับผลิต OEM</h3>
+        <p>รับผลิตน้ำจิ้ม น้ำซุป น้ำยำ และเส้นก๋วยจั๊บ ภายใต้แบรนด์ของลูกค้า พร้อมพัฒนาสูตรและออกแบบบรรจุภัณฑ์ ประสบการณ์ผลิตให้แบรนด์ชั้นนำระดับห้าง</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cic">🏷️</div>
+        <h3>แบรนด์ของเราเอง</h3>
+        <p>สรวลครัว · KAD SAN · Favory · ราชาชาบู วางจำหน่ายในห้างสรรพสินค้าชั้นนำ พร้อมสินค้าคุณภาพที่ลูกค้าไว้วางใจ</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cic">📦</div>
+        <h3>ขายส่ง / หัวเชื้อ</h3>
+        <p>จำหน่ายหัวเชื้อน้ำซุปชาบูและน้ำจิ้มชาบูแบบแกลลอน สำหรับร้านอาหาร ร้านชาบู ปิ้งย่าง และร้านขายส่ง ในราคาที่คุ้มค่า</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sec" id="products">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <h2>สินค้าของเรา</h2>
+      <p>น้ำจิ้ม น้ำซุปชาบู น้ำยำ และเส้นก๋วยจั๊บ หลากหลายรสชาติ พร้อมทั้งขนาดขายปลีกและแบบแกลลอนสำหรับร้านอาหาร</p>
+    </div>
+
+    <div class="tabs reveal">
+      <button class="tab active" data-f="all">ทั้งหมด</button>
+      <button class="tab" data-f="sauce">น้ำจิ้ม &amp; ซอสปรุงรส</button>
+      <button class="tab" data-f="soup">น้ำซุปชาบู</button>
+      <button class="tab" data-f="yam">น้ำยำ</button>
+      <button class="tab" data-f="noodle">เส้นก๋วยจั๊บ</button>
+    </div>
+
+    <div class="prod-grid" id="grid">
+
+      <div class="card reveal" data-cat="sauce">
+        <div class="ph on-light"><img src="assets/prod-seafood.jpg" alt="น้ำจิ้มซีฟู้ด สรวลครัว"><span class="cat-tag">น้ำจิ้ม</span><span class="price">฿59</span></div>
+        <div class="body">
+          <h3>น้ำจิ้มซีฟู้ด</h3>
+          <p class="desc">น้ำจิ้มซีฟู้ดรสจัดจ้าน ตราสรวลครัว เผ็ด ชัด จี๊ดจ๊าด เข้ากับอาหารทะเลทุกเมนู</p>
+          <div class="specs"><span>180 กรัม</span><span>อายุ 3 เดือน</span><span>9 ขวด/กล่อง</span></div>
+          <div class="avail">วางจำหน่าย: <b>Tops · Lotus's · ห้างชั้นนำ</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="yam">
+        <div class="ph on-dark"><img src="assets/prod-yam.jpg" alt="น้ำยำสำเร็จรูป ยำเริ่ด สรวลครัว"><span class="cat-tag">น้ำยำ</span><span class="price">฿45</span></div>
+        <div class="body">
+          <h3>น้ำยำสำเร็จรูป "ยำเริ่ด"</h3>
+          <p class="desc">ทำยำได้ง่ายๆ ที่บ้านคุณ เตรียมแค่เนื้อสัตว์ ผัก แล้วราดน้ำยำ เพียง 3 นาที ก็ได้ยำอร่อยเริ่ด</p>
+          <div class="specs"><span>150 กรัม</span><span>9 ขวด/กล่อง</span><span>เย็นได้ 6 เดือน</span></div>
+          <div class="avail">วางจำหน่าย: <b>Tops · Lotus's · ห้างชั้นนำ</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="sauce">
+        <div class="ph on-dark"><img src="assets/prod-jaew.jpg" alt="น้ำจิ้มแจ่ว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
+        <div class="body">
+          <h3>น้ำจิ้มแจ่ว</h3>
+          <p class="desc">น้ำจิ้มแจ่วรสเข้มข้น หอมข้าวคั่ว เผ็ดกำลังดี เข้ากับเนื้อย่าง หมูกระทะ และอาหารอีสาน</p>
+          <div class="specs"><span>เข้มข้น</span><span>สูตรต้นตำรับ</span></div>
+          <div class="avail">มีทั้งขนาด <b>ขวดปลีก · แกลลอน</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="sauce">
+        <div class="ph on-dark"><img src="assets/prod-sesame.jpg" alt="น้ำจิ้มงาขาว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
+        <div class="body">
+          <h3>น้ำจิ้มงาขาว</h3>
+          <p class="desc">อร่อย เข้มข้น หอมงา สำหรับน้ำจิ้มชาบู ปิ้งย่าง และ Yakiniku ตรา KAD SAN</p>
+          <div class="specs"><span>เข้มข้น</span><span>ชาบู · ปิ้งย่าง</span></div>
+          <div class="avail">เหมาะสำหรับ <b>ร้านอาหาร · ขายส่ง</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="sauce">
+        <div class="ph on-dark"><img src="assets/prod-dong.jpg" alt="น้ำดองซีอิ๊ว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
+        <div class="body">
+          <h3>น้ำดองซีอิ๊ว</h3>
+          <p class="desc">ตรา KAD SAN ใช้ทำเมนูดอง เช่น กุ้งดอง ปลาหมึกดอง ราดใส่เนื้อหรืออาหารทะเล เติมพริก โรยงาขาว</p>
+          <div class="specs"><span>220 กรัม</span><span>12 ขวด/แพ็ค</span><span>เย็นได้ 3 เดือน</span></div>
+          <div class="avail">จำหน่าย: <b>ขายส่งให้ร้านขายส่ง</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="soup">
+        <div class="ph on-light"><img src="assets/soup-packs.jpg" alt="น้ำซุปชาบูน้ำดำ สุกี้ยากี้"><span class="cat-tag">น้ำซุปชาบู</span></div>
+        <div class="body">
+          <h3>น้ำซุปชาบูสูตรน้ำดำ (สุกี้ยากี้)</h3>
+          <p class="desc">ซอสปรุงรสน้ำซุปชาบู รสซุปดำ หอมปลาแห้ง สไตล์ญี่ปุ่น ทำได้ทั้งน้ำซุปชาบู ข้าวหน้าเนื้อ และหัวปลาต้มซีอิ๊ว</p>
+          <div class="specs"><span>100 / 250 กรัม</span><span>12 ซอง/กล่อง</span><span>เย็นได้ 6 เดือน</span></div>
+          <div class="avail">จำหน่าย: <b>ขายส่ง · ร้านอาหาร</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="soup">
+        <div class="ph on-light"><img src="assets/prod-jaewhon.jpg" alt="น้ำซุปชาบูแจ่วฮ้อน Favory"><span class="cat-tag">น้ำซุปชาบู</span></div>
+        <div class="body">
+          <h3>น้ำซุปชาบูแจ่วฮ้อน</h3>
+          <p class="desc">ซอสปรุงรสสูตรแจ่วฮ้อน เข้มข้น เครื่องแท้ ถึงใจ หอมสมุนไพรไทย ปรุงเป็นหม้อชาบูแจ่วฮ้อนได้ทันที</p>
+          <div class="specs"><span>250 กรัม</span><span>Thai Herb Pot Soup</span></div>
+          <div class="avail">แบรนด์ <b>Favory</b> · ขายส่ง</div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="soup">
+        <div class="ph on-dark"><img src="assets/prod-racha-gallon.jpg" alt="ราชาชาบูน้ำดำ แกลลอน"><span class="cat-tag">น้ำซุปชาบู</span><span class="price">แกลลอน</span></div>
+        <div class="body">
+          <h3>ราชาชาบูน้ำดำ (5,000 มล.)</h3>
+          <p class="desc">สูตรต้นตำรับญี่ปุ่นแท้ หอมปลาคัตสึโอะเข้มข้น คุ้มค่าระดับเชฟ สำหรับร้านชาบู ร้านอาหาร แบบแกลลอน</p>
+          <div class="specs"><span>5,000 มล.</span><span>ระดับเชฟ</span><span>ต้นตำรับญี่ปุ่น</span></div>
+          <div class="avail">เหมาะสำหรับ <b>ร้านอาหาร · ขายส่ง</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="soup">
+        <div class="ph on-dark"><img src="assets/prod-tomyum.jpg" alt="ซุปต้มยำเข้มข้น"><span class="cat-tag">น้ำซุป</span></div>
+        <div class="body">
+          <h3>ซุปต้มยำเข้มข้น</h3>
+          <p class="desc">หัวเชื้อซุปต้มยำ รสจัดจ้าน หอมสมุนไพร ปรุงต้มยำ ชาบูต้มยำ ได้รสร้านดังในไม่กี่นาที</p>
+          <div class="specs"><span>เข้มข้น</span><span>สมุนไพรแท้</span></div>
+          <div class="avail">มีทั้ง <b>ซอง · แกลลอน</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="noodle">
+        <div class="ph on-dark"><img src="assets/prod-danang.jpg" alt="ก๋วยจั๊บกึ่งสำเร็จรูป ดานัง"><span class="cat-tag">เส้นก๋วยจั๊บ</span><span class="price">฿35</span></div>
+        <div class="body">
+          <h3>ก๋วยจั๊บกึ่งสำเร็จรูป "ดานัง"</h3>
+          <p class="desc">รสต้นตำรับ เส้นเหนียวนุ่ม อร่อยง่ายใน 3 นาที เพียง ฉีก เท ต้ม พร้อมเครื่องปรุงครบ</p>
+          <div class="specs"><span>120 กรัม</span><span>12 ซอง/กล่อง</span><span>เย็นได้ 3 เดือน</span></div>
+          <div class="avail">วางจำหน่าย: <b>Big C · ขายปลีก &amp; ส่ง</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="noodle">
+        <div class="ph on-light"><img src="assets/prod-vietnoodle.jpg" alt="เส้นก๋วยจั๊บเวียดนาม"><span class="cat-tag">เส้นก๋วยจั๊บ</span></div>
+        <div class="body">
+          <h3>เส้นก๋วยจั๊บเวียดนาม</h3>
+          <p class="desc">ผลิตเส้นก๋วยจั๊บเวียดนามคุณภาพ เส้นเหนียวนุ่ม พร้อมรับผลิตในแบรนด์ของคุณ (OEM)</p>
+          <div class="specs"><span>ผลิตเอง</span><span>รับผลิต OEM</span></div>
+          <div class="avail">จำหน่าย: <b>ปลีก · ส่ง · OEM</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-cat="sauce">
+        <div class="ph on-light"><img src="assets/oem-bottles.jpg" alt="ผลิตภัณฑ์ OEM Donny's Choice"><span class="cat-tag">OEM</span></div>
+        <div class="body">
+          <h3>ผลิตภัณฑ์ OEM ครบวงจร</h3>
+          <p class="desc">รับผลิตน้ำจิ้ม ซอสปรุงรส น้ำซุป ในแบรนด์ของคุณ ตัวอย่างผลงาน ตรา Donny's Choice จัดจำหน่ายที่ Tops และ Family Mart</p>
+          <div class="specs"><span>พัฒนาสูตร</span><span>ออกแบบฉลาก</span><span>ผลิตครบวงจร</span></div>
+          <div class="avail">ผลงานให้ <b>ห้างชั้นนำระดับประเทศ</b></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="sec brands" id="brands">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <h2>แบรนด์ในเครือ &amp; ผลงาน OEM</h2>
+      <p>เราสร้างแบรนด์ของเราเอง และเป็นผู้ผลิตเบื้องหลังให้กับแบรนด์ชั้นนำมากมาย</p>
+    </div>
+    <div class="brand-grid">
+      <div class="bcard reveal"><div class="bn">สรวลครัว</div><p>น้ำจิ้มซีฟู้ด &amp; น้ำยำสำเร็จรูป วางจำหน่ายใน Tops · Lotus's</p></div>
+      <div class="bcard reveal"><div class="bn">KAD SAN</div><p>น้ำจิ้มงาขาว · น้ำดองซีอิ๊ว · หัวเชื้อน้ำซุปชาบู สำหรับร้านอาหาร</p></div>
+      <div class="bcard reveal"><div class="bn">Favory</div><p>ซอสปรุงรสน้ำซุปชาบู แจ่วฮ้อน &amp; สูตรน้ำดำ เข้มข้น</p></div>
+      <div class="bcard reveal"><div class="bn">ราชาชาบู</div><p>น้ำซุปชาบูน้ำดำ สูตรต้นตำรับญี่ปุ่น หอมปลาคัตสึโอะ</p></div>
+    </div>
+
+    <div class="oem-banner reveal">
+      <div>
+        <div class="eyebrow" style="color:var(--orange-soft)">ผลงาน OEM</div>
+        <h3>ผลิตให้ <span>Donny's Choice</span><br>วางขายทั่วประเทศ</h3>
+        <p>ผลิตภัณฑ์ OEM ตรา ดอนนี่ช้อย จัดจำหน่ายโดย บริษัทเซ็นทรัลฟู้ดรีเทล มีวางขายที่ Tops และ Family Mart — พิสูจน์คุณภาพและมาตรฐานการผลิตของเรา</p>
+        <div class="retail-logos">
+          <span>Tops</span><span>Lotus's</span><span>Big C</span><span>FamilyMart</span>
+        </div>
+      </div>
+      <img src="assets/yakiniku-bottles.jpg" alt="ผลงาน OEM น้ำจิ้ม">
+    </div>
+  </div>
+</section>
+
+<!-- WHOLESALE -->
+<section class="sec caps" id="wholesale">
+  <div class="wrap whole">
+    <div class="visual reveal"><img src="assets/ingredients.jpg" alt="หัวเชื้อน้ำซุปชาบู"></div>
+    <div class="reveal">
+      <div class="eyebrow">สำหรับร้านอาหาร &amp; ร้านขายส่ง</div>
+      <h2>หัวเชื้อน้ำซุป &amp; น้ำจิ้ม แบบแกลลอน</h2>
+      <p style="color:var(--muted);font-size:1.06rem">ราคาและคุณภาพที่เราคำนึงถึงผู้ประกอบการเป็นหลัก ช่วยให้ร้านชาบู ปิ้งย่าง และร้านอาหาร คุมต้นทุนได้ พร้อมรสชาติมาตรฐานทุกหม้อ</p>
+      <ul>
+        <li><div class="ck">✓</div><div>หัวเชื้อน้ำซุปชาบูเข้มข้น ชงง่าย รสคงที่ทุกครั้ง</div></li>
+        <li><div class="ck">✓</div><div>น้ำจิ้มชาบู · ปิ้งย่าง · งาขาว · แจ่ว แบบแกลลอน คุ้มค่า</div></li>
+        <li><div class="ck">✓</div><div>รับผลิตตามสูตร (OEM) พร้อมออกแบบบรรจุภัณฑ์</div></li>
+        <li><div class="ck">✓</div><div>สั่งขายส่งได้ ราคาพิเศษตามจำนวน</div></li>
+      </ul>
+      <div class="pricebox">ตัวอย่างราคาส่งก๋วยจั๊บดานัง เริ่มต้น <b>16–20 บาท/ซอง</b> · ขั้นต่ำ 50 ซอง</div>
+      <div style="margin-top:24px"><a href="#contact" class="btn btn-dark">สอบถามราคาขายส่ง &rarr;</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="divider"></div>
+      <h2>ติดต่อสั่งซื้อ / รับผลิต</h2>
+      <p>สนใจสั่งซื้อ ขายส่ง หรือรับผลิต OEM ติดต่อเราได้ทุกช่องทาง ยินดีให้คำปรึกษา</p>
+    </div>
+    <div class="contact-grid">
+      <div class="cc reveal">
+        <div class="cic">📞</div>
+        <h4>โทรศัพท์</h4>
+        <p><a href="tel:0981288892">098-128-8892</a> <small>คุณติ๊ก</small></p>
+        <p style="margin-top:8px"><a href="tel:0803959662">080-395-9662</a> <small>คุณเวย์</small></p>
+      </div>
+      <div class="cc reveal">
+        <div class="cic">✉️</div>
+        <h4>อีเมล</h4>
+        <p><a href="mailto:tickae@hotmail.com">tickae@hotmail.com</a></p>
+        <p style="margin-top:8px"><a href="https://facebook.com" target="_blank">Facebook: ขายส่ง หัวเชื้อน้ำซุปชาบูและน้ำจิ้มชาบู</a></p>
+      </div>
+      <div class="cc reveal">
+        <div class="cic">📍</div>
+        <h4>ที่ตั้งโรงงาน</h4>
+        <p>555/63 หมู่ที่ 1 ตำบลท่าสองคอน อำเภอเมืองมหาสารคาม จังหวัดมหาสารคาม 44000</p>
+      </div>
+    </div>
+
+    <div class="cta-final reveal">
+      <h3>พร้อมส่งมอบความอร่อยระดับโรงงานให้ธุรกิจคุณ</h3>
+      <p>ไม่ว่าจะเป็นร้านชาบู ปิ้งย่าง ร้านอาหาร หรือต้องการสร้างแบรนด์ของตัวเอง เราพร้อมผลิตให้คุณ</p>
+      <div class="btns">
+        <a href="tel:0981288892" class="btn btn-primary">📞 โทรสั่งเลย</a>
+        <a href="mailto:tickae@hotmail.com" class="btn btn-ghost" style="border-color:rgba(255,255,255,.6)">✉️ ส่งอีเมล</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <div class="fbrand">
+      <img src="assets/logo.jpg" alt="logo">
+      <div><b>ห้างหุ้นส่วน ซี เอส เจริญสิน</b><br><small>CHAROENSIN LIMITED PARTNERSHIP</small></div>
+    </div>
+    <div class="fcopy">
+      โรงงานผลิตน้ำจิ้ม น้ำซุปชาบู น้ำยำ และเส้นก๋วยจั๊บ · มหาสารคาม<br>
+      &copy; 2568 CS Charoensin. สงวนลิขสิทธิ์.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+  // mobile menu
+  const mm=document.getElementById('mm');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mmClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  // reveal
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // counters
+  const cio=new IntersectionObserver((es)=>es.forEach(e=>{
+    if(!e.isIntersecting)return; cio.unobserve(e.target);
+    const el=e.target,to=+el.dataset.count,suf=el.dataset.suffix||'';let n=0;
+    const step=Math.max(1,to/40);
+    const t=setInterval(()=>{n+=step;if(n>=to){n=to;clearInterval(t)}el.textContent=Math.floor(n)+suf},28);
+  }),{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+  // product filter
+  const tabs=document.querySelectorAll('.tab'),cards=document.querySelectorAll('#grid .card');
+  tabs.forEach(t=>t.onclick=()=>{
+    tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');
+    const f=t.dataset.f;
+    cards.forEach(c=>{
+      const show=f==='all'||c.dataset.cat===f;
+      c.style.display=show?'flex':'none';
+    });
+  });
+</script>
+</body>
+</html>
