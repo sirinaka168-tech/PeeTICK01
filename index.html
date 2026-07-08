@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem('lang'))document.documentElement.classList.add('has-lang');}catch(e){}</script>
 <style>
   :root{
     --orange:#E06A38;
@@ -280,9 +281,41 @@
   .mm-lang{display:flex;gap:10px;margin-top:26px}
   .mm-lang .lang-btn{font-size:1.05rem;padding:9px 20px;border:1.5px solid rgba(255,255,255,.45);color:#fff}
   .mm-lang .lang-btn.active{background:var(--orange);border-color:var(--orange)}
+
+  /* LANGUAGE GATE */
+  #langGate{position:fixed;inset:0;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;
+    background:linear-gradient(135deg,rgba(94,31,25,.96),rgba(124,45,37,.93)),url(assets/hero-shabu.jpg) center/cover no-repeat;
+    transition:opacity .5s ease, visibility .5s ease}
+  #langGate.hide{opacity:0;visibility:hidden;pointer-events:none}
+  html.has-lang #langGate{display:none!important}
+  body.gate-open{overflow:hidden}
+  #langGate .g-logo{width:82px;height:82px;border-radius:20px;background:#fff;padding:6px;box-shadow:var(--shadow);margin-bottom:24px;animation:gIn .6s ease both}
+  #langGate h2{color:#fff;font-family:'Kanit',sans-serif;font-weight:700;font-size:clamp(1.5rem,4vw,2.3rem);margin-bottom:8px;animation:gIn .6s .05s ease both}
+  #langGate .g-sub{color:rgba(255,255,255,.82);font-family:'Kanit',sans-serif;margin-bottom:36px;font-size:1rem;letter-spacing:.03em;animation:gIn .6s .1s ease both}
+  .g-opts{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;max-width:680px}
+  .g-opt{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.35);border-radius:20px;padding:26px 30px;min-width:186px;cursor:pointer;transition:.25s;backdrop-filter:blur(6px);color:#fff;animation:gIn .6s .15s ease both}
+  .g-opt:hover{background:#fff;color:var(--maroon);transform:translateY(-6px);box-shadow:var(--shadow)}
+  .g-opt .flag{margin-bottom:14px;display:flex;justify-content:center}
+  .g-opt .flag svg{width:64px;height:43px;border-radius:6px;box-shadow:0 3px 12px rgba(0,0,0,.4)}
+  .g-opt .native{font-family:'Kanit',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:2px}
+  .g-opt .eng{font-size:.85rem;opacity:.7;font-family:'Kanit',sans-serif}
+  @keyframes gIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @media(max-width:520px){.g-opts{flex-direction:column;width:100%;max-width:340px}.g-opt{min-width:0;width:100%;display:flex;align-items:center;gap:16px;padding:16px 22px;text-align:left}.g-opt .flag{margin-bottom:0;font-size:2.2rem}}
 </style>
 </head>
 <body>
+
+<!-- LANGUAGE GATE -->
+<div id="langGate">
+  <img class="g-logo" src="assets/logo.jpg" alt="CS Charoensin">
+  <h2>เลือกภาษา · Choose your language</h2>
+  <div class="g-sub">ເລືອກພາສາ · Chọn ngôn ngữ</div>
+  <div class="g-opts">
+    <button class="g-opt" data-lang="th"><div class="flag"><svg viewBox="0 0 60 40"><rect width="60" height="40" fill="#A51931"/><rect y="6.67" width="60" height="26.66" fill="#F4F5F8"/><rect y="13.33" width="60" height="13.34" fill="#2D2A4A"/></svg></div><div class="native">ภาษาไทย</div><div class="eng">Thai</div></button>
+    <button class="g-opt" data-lang="lo"><div class="flag"><svg viewBox="0 0 60 40"><rect width="60" height="40" fill="#CE1126"/><rect y="10" width="60" height="20" fill="#002868"/><circle cx="30" cy="20" r="7" fill="#fff"/></svg></div><div class="native">ລາວ</div><div class="eng">Lao</div></button>
+    <button class="g-opt" data-lang="vi"><div class="flag"><svg viewBox="0 0 60 40"><rect width="60" height="40" fill="#DA251D"/><polygon points="30,8 32.82,16.12 41.41,16.29 34.56,21.48 37.05,29.71 30,24.8 22.95,29.71 25.44,21.48 18.59,16.29 27.18,16.12" fill="#FFFF00"/></svg></div><div class="native">Tiếng Việt</div><div class="eng">Vietnamese</div></button>
+  </div>
+</div>
 
 <!-- NAV -->
 <header id="hdr">
@@ -749,7 +782,15 @@
     document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.getAttribute('data-lang')===l));
   }
   document.querySelectorAll('.lang-btn').forEach(b=>b.onclick=()=>setLang(b.getAttribute('data-lang')));
-  (function(){ let s='th'; try{ s=localStorage.getItem('lang')||'th'; }catch(e){} setLang(s); })();
+  // ===== language gate =====
+  const gate=document.getElementById('langGate');
+  function closeGate(){ if(gate){gate.classList.add('hide');} document.body.classList.remove('gate-open'); }
+  if(gate){ gate.querySelectorAll('.g-opt').forEach(b=>b.onclick=()=>{ setLang(b.getAttribute('data-lang')); closeGate(); }); }
+  (function(){
+    let saved=null; try{ saved=localStorage.getItem('lang'); }catch(e){}
+    if(saved){ setLang(saved); closeGate(); }
+    else { setLang('th'); document.body.classList.add('gate-open'); }
+  })();
 </script>
 </body>
 </html>
