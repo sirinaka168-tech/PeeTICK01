@@ -122,6 +122,18 @@
   .rpoint{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:50px;padding:10px 20px;font-family:'Kanit',sans-serif;font-weight:500;color:var(--maroon);box-shadow:var(--shadow-sm);font-size:.95rem}
   .rpoint .rk{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700}
 
+  /* REVIEWS */
+  .reviews{background:linear-gradient(180deg,var(--cream-2),var(--cream))}
+  .reviews .stars{color:var(--gold);font-size:1.3rem;letter-spacing:2px;margin-bottom:6px}
+  .review-grid{columns:3;column-gap:22px;max-width:1000px;margin:0 auto}
+  .rev{break-inside:avoid;margin-bottom:22px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);background:#fff;transition:.32s}
+  .rev:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:var(--shadow)}
+  .rev img{width:100%;display:block}
+  .rev .tag{display:flex;align-items:center;gap:7px;padding:10px 14px;font-family:'Kanit',sans-serif;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line)}
+  .rev .tag .v{margin-left:auto;color:var(--orange-deep);font-weight:600}
+  @media(max-width:900px){.review-grid{columns:2}}
+  @media(max-width:560px){.review-grid{columns:1;max-width:420px}}
+
   /* ABOUT */
   .about{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
   .about .txt .eyebrow{margin-bottom:8px}
@@ -157,12 +169,15 @@
   .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   .card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:.32s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
-  .card .ph{position:relative;height:250px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px}
-  .card .ph img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:.5s;filter:drop-shadow(0 12px 20px rgba(0,0,0,.4))}
-  .card:hover .ph img{transform:scale(1.06)}
-  .card .ph.on-dark{background:radial-gradient(circle at 50% 28%,#1c1310,#000)}
-  .card .ph.on-light{background:radial-gradient(circle at 50% 25%,#ffffff,var(--cream-2))}
-  .card .ph.on-light img{filter:drop-shadow(0 12px 22px rgba(124,45,37,.18))}
+  .card .ph{position:relative;height:260px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px 24px 30px;
+    background:
+      radial-gradient(115% 78% at 50% 10%, rgba(255,255,255,.92), rgba(255,255,255,0) 62%),
+      linear-gradient(165deg,#FFF3E9 0%,#FCE6D5 55%,#F6D9C1 100%);}
+  .card .ph::before{content:"";position:absolute;inset:0;background:url(assets/logo-watermark.png) no-repeat center 56%;background-size:60%;opacity:.06;filter:grayscale(1);pointer-events:none}
+  .card .ph::after{content:"";position:absolute;left:50%;bottom:20px;transform:translateX(-50%);width:58%;height:16px;border-radius:50%;background:radial-gradient(ellipse,rgba(120,50,30,.30),transparent 72%);filter:blur(3px)}
+  .card .ph img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;position:relative;z-index:1;transition:.5s;filter:drop-shadow(0 16px 20px rgba(80,30,15,.30))}
+  .card:hover .ph img{transform:scale(1.06) translateY(-3px)}
+  .card .cat-tag,.card .price{z-index:2}
   .card .cat-tag{position:absolute;top:14px;left:14px;background:rgba(124,45,37,.92);color:#fff;font-family:'Kanit',sans-serif;font-weight:500;font-size:.76rem;padding:6px 13px;border-radius:30px;backdrop-filter:blur(3px)}
   .card .price{position:absolute;top:14px;right:14px;background:var(--gold);color:#3a2410;font-family:'Kanit',sans-serif;font-weight:700;font-size:.85rem;padding:6px 13px;border-radius:30px}
   .card .body{padding:22px;display:flex;flex-direction:column;flex:1}
@@ -272,6 +287,7 @@
       <a href="#products">สินค้า</a>
       <a href="#brands">แบรนด์</a>
       <a href="#wholesale">ขายส่ง</a>
+      <a href="#reviews">รีวิว</a>
       <a href="#contact" class="nav-cta">ติดต่อสั่งซื้อ</a>
     </div>
     <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
@@ -285,6 +301,7 @@
   <a href="#products">สินค้า</a>
   <a href="#brands">แบรนด์</a>
   <a href="#wholesale">ขายส่ง</a>
+  <a href="#reviews">รีวิว</a>
   <a href="#contact">ติดต่อสั่งซื้อ</a>
 </div>
 
@@ -421,7 +438,7 @@
     <div class="prod-grid" id="grid">
 
       <div class="card reveal" data-cat="sauce">
-        <div class="ph on-light"><img src="assets/prod-seafood.jpg" alt="น้ำจิ้มซีฟู้ด สรวลครัว"><span class="cat-tag">น้ำจิ้ม</span><span class="price">฿59</span></div>
+        <div class="ph"><img src="assets/cut-prod-seafood.png" alt="น้ำจิ้มซีฟู้ด สรวลครัว"><span class="cat-tag">น้ำจิ้ม</span><span class="price">฿59</span></div>
         <div class="body">
           <h3>น้ำจิ้มซีฟู้ด</h3>
           <p class="desc">น้ำจิ้มซีฟู้ดรสจัดจ้าน ตราสรวลครัว เผ็ด ชัด จี๊ดจ๊าด เข้ากับอาหารทะเลทุกเมนู</p>
@@ -431,7 +448,7 @@
       </div>
 
       <div class="card reveal" data-cat="yam">
-        <div class="ph on-dark"><img src="assets/prod-yam.jpg" alt="น้ำยำสำเร็จรูป ยำเริ่ด สรวลครัว"><span class="cat-tag">น้ำยำ</span><span class="price">฿45</span></div>
+        <div class="ph"><img src="assets/cut-prod-yam.png" alt="น้ำยำสำเร็จรูป ยำเริ่ด สรวลครัว"><span class="cat-tag">น้ำยำ</span><span class="price">฿45</span></div>
         <div class="body">
           <h3>น้ำยำสำเร็จรูป "ยำเริ่ด"</h3>
           <p class="desc">ทำยำได้ง่ายๆ ที่บ้านคุณ เตรียมแค่เนื้อสัตว์ ผัก แล้วราดน้ำยำ เพียง 3 นาที ก็ได้ยำอร่อยเริ่ด</p>
@@ -441,7 +458,7 @@
       </div>
 
       <div class="card reveal" data-cat="sauce">
-        <div class="ph on-dark"><img src="assets/prod-jaew.jpg" alt="น้ำจิ้มแจ่ว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
+        <div class="ph"><img src="assets/cut-prod-jaew.png" alt="น้ำจิ้มแจ่ว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
         <div class="body">
           <h3>น้ำจิ้มแจ่ว</h3>
           <p class="desc">น้ำจิ้มแจ่วรสเข้มข้น หอมข้าวคั่ว เผ็ดกำลังดี เข้ากับเนื้อย่าง หมูกระทะ และอาหารอีสาน</p>
@@ -451,7 +468,7 @@
       </div>
 
       <div class="card reveal" data-cat="sauce">
-        <div class="ph on-dark"><img src="assets/prod-sesame.jpg" alt="น้ำจิ้มงาขาว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
+        <div class="ph"><img src="assets/cut-prod-sesame.png" alt="น้ำจิ้มงาขาว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
         <div class="body">
           <h3>น้ำจิ้มงาขาว</h3>
           <p class="desc">อร่อย เข้มข้น หอมงา สำหรับน้ำจิ้มชาบู ปิ้งย่าง และ Yakiniku ตรา KAD SAN</p>
@@ -461,7 +478,7 @@
       </div>
 
       <div class="card reveal" data-cat="sauce">
-        <div class="ph on-dark"><img src="assets/prod-dong.jpg" alt="น้ำดองซีอิ๊ว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
+        <div class="ph"><img src="assets/cut-prod-dong.png" alt="น้ำดองซีอิ๊ว KAD SAN"><span class="cat-tag">น้ำจิ้ม</span></div>
         <div class="body">
           <h3>น้ำดองซีอิ๊ว</h3>
           <p class="desc">ตรา KAD SAN ใช้ทำเมนูดอง เช่น กุ้งดอง ปลาหมึกดอง ราดใส่เนื้อหรืออาหารทะเล เติมพริก โรยงาขาว</p>
@@ -471,7 +488,7 @@
       </div>
 
       <div class="card reveal" data-cat="soup">
-        <div class="ph on-light"><img src="assets/soup-packs.jpg" alt="น้ำซุปชาบูน้ำดำ สุกี้ยากี้"><span class="cat-tag">น้ำซุปชาบู</span></div>
+        <div class="ph"><img src="assets/cut-soup-packs.png" alt="น้ำซุปชาบูน้ำดำ สุกี้ยากี้"><span class="cat-tag">น้ำซุปชาบู</span></div>
         <div class="body">
           <h3>น้ำซุปชาบูสูตรน้ำดำ (สุกี้ยากี้)</h3>
           <p class="desc">ซอสปรุงรสน้ำซุปชาบู รสซุปดำ หอมปลาแห้ง สไตล์ญี่ปุ่น ทำได้ทั้งน้ำซุปชาบู ข้าวหน้าเนื้อ และหัวปลาต้มซีอิ๊ว</p>
@@ -481,7 +498,7 @@
       </div>
 
       <div class="card reveal" data-cat="soup">
-        <div class="ph on-light"><img src="assets/prod-jaewhon.jpg" alt="น้ำซุปชาบูแจ่วฮ้อน Favory"><span class="cat-tag">น้ำซุปชาบู</span></div>
+        <div class="ph"><img src="assets/cut-prod-jaewhon.png" alt="น้ำซุปชาบูแจ่วฮ้อน Favory"><span class="cat-tag">น้ำซุปชาบู</span></div>
         <div class="body">
           <h3>น้ำซุปชาบูแจ่วฮ้อน</h3>
           <p class="desc">ซอสปรุงรสสูตรแจ่วฮ้อน เข้มข้น เครื่องแท้ ถึงใจ หอมสมุนไพรไทย ปรุงเป็นหม้อชาบูแจ่วฮ้อนได้ทันที</p>
@@ -491,7 +508,7 @@
       </div>
 
       <div class="card reveal" data-cat="soup">
-        <div class="ph on-dark"><img src="assets/prod-racha-gallon.jpg" alt="ราชาชาบูน้ำดำ แกลลอน"><span class="cat-tag">น้ำซุปชาบู</span><span class="price">แกลลอน</span></div>
+        <div class="ph"><img src="assets/cut-prod-racha-gallon.png" alt="ราชาชาบูน้ำดำ แกลลอน"><span class="cat-tag">น้ำซุปชาบู</span><span class="price">แกลลอน</span></div>
         <div class="body">
           <h3>ราชาชาบูน้ำดำ (5,000 มล.)</h3>
           <p class="desc">สูตรต้นตำรับญี่ปุ่นแท้ หอมปลาคัตสึโอะเข้มข้น คุ้มค่าระดับเชฟ สำหรับร้านชาบู ร้านอาหาร แบบแกลลอน</p>
@@ -501,7 +518,7 @@
       </div>
 
       <div class="card reveal" data-cat="soup">
-        <div class="ph on-dark"><img src="assets/prod-tomyum.jpg" alt="ซุปต้มยำเข้มข้น"><span class="cat-tag">น้ำซุป</span></div>
+        <div class="ph"><img src="assets/cut-prod-tomyum.png" alt="ซุปต้มยำเข้มข้น"><span class="cat-tag">น้ำซุป</span></div>
         <div class="body">
           <h3>ซุปต้มยำเข้มข้น</h3>
           <p class="desc">หัวเชื้อซุปต้มยำ รสจัดจ้าน หอมสมุนไพร ปรุงต้มยำ ชาบูต้มยำ ได้รสร้านดังในไม่กี่นาที</p>
@@ -511,7 +528,7 @@
       </div>
 
       <div class="card reveal" data-cat="noodle">
-        <div class="ph on-dark"><img src="assets/prod-danang.jpg" alt="ก๋วยจั๊บกึ่งสำเร็จรูป ดานัง"><span class="cat-tag">เส้นก๋วยจั๊บ</span><span class="price">฿35</span></div>
+        <div class="ph"><img src="assets/cut-prod-danang.png" alt="ก๋วยจั๊บกึ่งสำเร็จรูป ดานัง"><span class="cat-tag">เส้นก๋วยจั๊บ</span><span class="price">฿35</span></div>
         <div class="body">
           <h3>ก๋วยจั๊บกึ่งสำเร็จรูป "ดานัง"</h3>
           <p class="desc">รสต้นตำรับ เส้นเหนียวนุ่ม อร่อยง่ายใน 3 นาที เพียง ฉีก เท ต้ม พร้อมเครื่องปรุงครบ</p>
@@ -521,7 +538,7 @@
       </div>
 
       <div class="card reveal" data-cat="noodle">
-        <div class="ph on-light"><img src="assets/prod-vietnoodle.jpg" alt="เส้นก๋วยจั๊บเวียดนาม"><span class="cat-tag">เส้นก๋วยจั๊บ</span></div>
+        <div class="ph"><img src="assets/cut-prod-vietnoodle.png" alt="เส้นก๋วยจั๊บเวียดนาม"><span class="cat-tag">เส้นก๋วยจั๊บ</span></div>
         <div class="body">
           <h3>เส้นก๋วยจั๊บเวียดนาม</h3>
           <p class="desc">ผลิตเส้นก๋วยจั๊บเวียดนามคุณภาพ เส้นเหนียวนุ่ม พร้อมรับผลิตในแบรนด์ของคุณ (OEM)</p>
@@ -531,7 +548,7 @@
       </div>
 
       <div class="card reveal" data-cat="sauce">
-        <div class="ph on-light"><img src="assets/oem-bottles.jpg" alt="ผลิตภัณฑ์ OEM Donny's Choice"><span class="cat-tag">OEM</span></div>
+        <div class="ph"><img src="assets/cut-oem-bottles.png" alt="ผลิตภัณฑ์ OEM Donny's Choice"><span class="cat-tag">OEM</span></div>
         <div class="body">
           <h3>ผลิตภัณฑ์ OEM ครบวงจร</h3>
           <p class="desc">รับผลิตน้ำจิ้ม ซอสปรุงรส น้ำซุป ในแบรนด์ของคุณ ตัวอย่างผลงาน ตรา Donny's Choice จัดจำหน่ายที่ Tops และ Family Mart</p>
@@ -628,6 +645,26 @@
         <a href="tel:0981288892" class="btn btn-primary">📞 โทรสั่งเลย</a>
         <a href="mailto:tickae@hotmail.com" class="btn btn-ghost" style="border-color:rgba(255,255,255,.6)">✉️ ส่งอีเมล</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="stars">★★★★★</div>
+      <div class="divider"></div>
+      <h2>รีวิวจากลูกค้า</h2>
+      <p>เสียงจริงจากผู้ใช้จริง — สินค้าของเราถูกรีวิวและพูดถึงในโซเชียลมากมาย ทั้ง TikTok, Facebook, Lemon8 และ X</p>
+    </div>
+    <div class="review-grid reveal">
+      <div class="rev"><img src="assets/reviews/rev-4.jpg" alt="รีวิว ก๋วยจั๊บญวน by Tops" loading="lazy"><div class="tag">📝 บทความรีวิว · Tops<span class="v">Exclusive</span></div></div>
+      <div class="rev"><img src="assets/reviews/rev-1.jpg" alt="รีวิวลูกค้า TikTok" loading="lazy"><div class="tag">🎬 รีวิว · TikTok<span class="v">น้ำจิ้มซีฟู้ด</span></div></div>
+      <div class="rev"><img src="assets/reviews/rev-6.jpg" alt="รีวิว X รีวิวของดี" loading="lazy"><div class="tag">𝕏 รีวิวของดี<span class="v">132K วิว</span></div></div>
+      <div class="rev"><img src="assets/reviews/rev-5.jpg" alt="รีวิว Lemon8" loading="lazy"><div class="tag">🍋 Lemon8<span class="v">ตัวดังใน Tops</span></div></div>
+      <div class="rev"><img src="assets/reviews/rev-2.jpg" alt="รีวิวลูกค้า Facebook" loading="lazy"><div class="tag">💬 รีวิว · Facebook<span class="v">ถูกปากถูกใจ</span></div></div>
+      <div class="rev"><img src="assets/reviews/rev-3.jpg" alt="รีวิวลูกค้า" loading="lazy"><div class="tag">🎬 รีวิว · TikTok<span class="v">69.1K</span></div></div>
     </div>
   </div>
 </section>
